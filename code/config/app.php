@@ -182,6 +182,7 @@ return [
         \Codercwm\Mpcache\MpcacheServiceProvider::class,
         \Codercwm\QueueExport\QueueExportServiceProvider::class,
         \App\Providers\TestServiceProvider::class,
+
     ],
 
     /*

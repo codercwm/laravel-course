@@ -16,6 +16,10 @@ class User extends Model implements JWTSubject
     }
 
     public static function qExExport($params=[]){
-        return self::query();
+        $query = self::query();
+        if(!empty($params['name'])){
+            $query->where('name','like','%'.$params['name'].'%');
+        }
+        return $query;
     }
 }

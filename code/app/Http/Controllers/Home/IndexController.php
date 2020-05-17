@@ -12,11 +12,6 @@ use Illuminate\Support\Facades\Cache;
 class IndexController extends Controller
 {
     public function test(Request $request){
-        /*Cache::put('sdklfjsaklf',0,10000);
-        for($i=0;$i<1000;$i++){
-            Cache::increment('sdklfjsaklf',1);
-        }
-        dd(Cache::get('sdklfjsaklf'));*/
         $queue_export = new QueueExport();
         $params = $request->all();
         $cid = 'sakldfj2';
@@ -42,10 +37,10 @@ class IndexController extends Controller
             "sprintf('%s%s%s',   `id`,  '-',  name??啊 )|1:一;2:二;3:三",
         ];
         $res = $queue_export->setCid($cid)
-            ->setModel(User::class,$params)
+            ->setModel(User::class)
             ->setFilename($filename)
             ->setHeadersFields($headers,$fields)
-            ->setExportType('queue')
+            ->setExportType('syncCsv')
             ->export();
 
         return $res;
